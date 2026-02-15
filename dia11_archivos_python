@@ -1,0 +1,129 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Día 11 — Guardar y leer archivos en Python\n",
+        "\n",
+        "Hoy aprenderé a guardar datos en archivos y leerlos.\n",
+        "\n",
+        "Objetivo:\n",
+        "- persistir información\n",
+        "- no perder datos al cerrar el programa\n",
+        "- hacer el programa más real\n",
+        "\n",
+        "Día: 11/100"
+      ],
+      "metadata": {
+        "id": "djtGJbL5wXuk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1XGjCJkSwTpH",
+        "outputId": "f443443b-f4a3-4ad9-d805-7fcd214f47c8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "introduce una tarea: Lección de python\n",
+            "tarea guardada\n"
+          ]
+        }
+      ],
+      "source": [
+        "tarea = input(\"introduce una tarea: \")\n",
+        "\n",
+        "with open(\"tareas.txt\", \"a\") as archivo:\n",
+        "    archivo.write(tarea + \"\\n\")\n",
+        "print(\"tarea guardada\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"\\n tareas guardadas:\")\n",
+        "\n",
+        "with open(\"tareas.txt\", \"r\") as archivo:\n",
+        "  for linea in archivo:\n",
+        "    print(\"-\", linea.strip())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ceVAUUZrxl_a",
+        "outputId": "ea8d6fd0-2d72-41dd-d4db-86d9924454c3"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            " tareas guardadas:\n",
+            "- primera tarea\n",
+            "- segunda tarea\n",
+            "- Lección de python\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def guardar_tarea():\n",
+        "  tarea = input(\"introduce una tarea: \")\n",
+        "\n",
+        "  with oper(\"tareas.txt\", \"a\") as archivo:\n",
+        "    archivo.write(tarea + \"\\n\")\n",
+        "  print(\"tarea guardada\")\n",
+        "\n",
+        "  def mostrar_tareas():\n",
+        "    print(\"\\n tareas guardadas:\")\n",
+        "\n",
+        "    with open(\"tareas.txt\", \"r\") as archivo:\n",
+        "      for linea in archivo:\n",
+        "        print(\"-\", linea.strip())\n",
+        "  guardar_tarea()\n",
+        "  mostrar_tareas()"
+      ],
+      "metadata": {
+        "id": "G8VCyFvgyA7F"
+      },
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "9CeDx_xQy9d6"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
